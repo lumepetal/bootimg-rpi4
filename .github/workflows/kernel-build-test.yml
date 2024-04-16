@@ -18,7 +18,7 @@ jobs:
       - name: Build in Docker
         run: |
             docker run --rm -i -v $PWD:/ws arm64v8/ubuntu:22.04 bash <<'EOF'
-            sudo apt install -y git bc bison flex libssl-dev make build-essential clang llvm
+            apt install -y git bc bison flex libssl-dev make build-essential clang llvm
 
             uname -a
             cd /ws
