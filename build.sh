@@ -22,7 +22,7 @@ export HOSTLD=ld.lld
 make bcm2711_defconfig
 cat .config
 
-echo "Start building!"
-make -j$(nproc) Image.gz modules dtbs
+echo "Start building with $(nproc) cores!"
+make -j$(nproc)
 
 ls arch/arm/boot
