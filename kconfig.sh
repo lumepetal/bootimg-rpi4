@@ -47,6 +47,9 @@ add_config CONFIG_CFI_CLANG y
 add_config CONFIG_CFI_CLANG_SHADOW y
 add_config CONFIG_CFI_PERMISSIVE n
 
+# Don't disable heap randomization.
+add_config CONFIG_COMPAT_BRK n
+
 # Enable randomize_kstack_offset by default
 add_config CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT y
 
