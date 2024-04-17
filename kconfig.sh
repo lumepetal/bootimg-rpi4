@@ -9,6 +9,7 @@ add_config() {
     if grep -q "^$search_pattern" "$target_config"; then
         # 存在する場合置き換える
         sed -i "s/^$search_pattern.*/$replacement/" "$target_config"
+        sed -i "/^# $1 is not set/d" "$target_config"
         echo "INFO: $1 was set to $2 (replaced)"
     else
         # 存在しない場合、行を追加する
