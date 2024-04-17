@@ -20,6 +20,10 @@ export HOSTAR=llvm-ar
 export HOSTLD=ld.lld
 
 make bcm2711_defconfig
+
+export LPOS_KRNLCFG_HYPERVISOR_GUEST=n
+bash ../kconfig.sh
+
 cat .config
 
 echo "Start building with $(nproc) cores!"
