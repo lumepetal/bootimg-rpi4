@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 
-local target_config="$(pwd)/.config"
+target_config="$(pwd)/.config"
 
 add_config() {
     local search_pattern="$1="
