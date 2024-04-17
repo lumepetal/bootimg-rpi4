@@ -58,6 +58,9 @@ add_config CONFIG_ARM64_SW_TTBR0_PAN y
 # ref: https://source.android.com/docs/core/architecture/kernel/hardening
 add_config CONFIG_HARDENED_USERCOPY y
 
+# Enable kPTI
+add_config CONFIG_PAGE_TABLE_ISOLATION y
+
 # Make kernel text and rodata read-only
 add_config CONFIG_STRICT_KERNEL_RWX y
 add_config CONFIG_STRICT_MODULE_RWX y
@@ -65,6 +68,9 @@ add_config CONFIG_STRICT_MODULE_RWX y
 # Compile with -fstack-protector-strong
 # ref: https://lore.kernel.org/lkml/tip-8779657d29c0ebcc0c94ede4df2f497baf1b563f@git.kernel.org/
 add_config CONFIG_CC_STACKPROTECTOR_STRONG y
+
+# Enable page table check
+add_config PAGE_TABLE_CHECK y
 
 # Enable TCP SynCookies
 add_config CONFIG_SYN_COOKIES y
