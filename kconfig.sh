@@ -38,6 +38,12 @@ add_config CONFIG_INIT_STACK_ALL_ZERO y
 # Enable the compiler's Shadow Call Stack, which uses a shadow stack to protect function return addresses from being overwritten by an attacker
 add_config CONFIG_SHADOW_CALL_STACK y
 
+# Disallow allocating the first 32k of memory (cannot be 64k due to ARM loader).
+add_config CONFIG_DEFAULT_MMAP_MIN_ADDR 32768
+
+# Enable Kernel Page Table Isolation
+add_config CONFIG_UNMAP_KERNEL_AT_EL0 y
+
 # Enable kCFI
 # ref: https://source.android.com/docs/security/test/kcfi
 add_config CONFIG_LTO_NONE n
@@ -52,6 +58,17 @@ add_config CONFIG_COMPAT_BRK n
 
 # Enable randomize_kstack_offset by default
 add_config CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT y
+
+# Enable page allocator randomization
+add_config CONFIG_SHUFFLE_PAGE_ALLOCATOR y
+
+# Randomize allocator freelists, harden metadata.
+add_config CONFIG_SLAB_FREELIST_RANDOM y
+add_config CONFIG_SLAB_FREELIST_HARDENED y
+
+# Enable Kernel Electric-Fence (KFENCE)
+# ref: https://docs.kernel.org/dev-tools/kfence.html
+add_config CONFIG_KFENCE y
 
 # Enable PAN (Privileged Access Never) emulation
 # ref: https://source.android.com/docs/core/architecture/kernel/hardening
@@ -70,10 +87,20 @@ add_config CONFIG_STRICT_MODULE_RWX y
 
 # Compile with -fstack-protector-strong
 # ref: https://lore.kernel.org/lkml/tip-8779657d29c0ebcc0c94ede4df2f497baf1b563f@git.kernel.org/
+add_config CONFIG_STACKPROTECTOR y
+add_config CONFIG_STACKPROTECTOR_STRONG y
 add_config CONFIG_CC_STACKPROTECTOR_STRONG y
 
 # Enable page table check
 add_config CONFIG_PAGE_TABLE_CHECK y
+
+# Harden common str/mem functions against buffer overflows
+# ref: https://docs.aws.amazon.com/ja_jp/linux/al2023/ug/compare-with-al2-kernel.html#CONFIG_FORTIFY_SOURCE
+add_config CONFIG_FORTIFY_SOURCE y
+
+# Improve IOMMU security
+add_config CONFIG_IOMMU_SUPPORT y
+add_config CONFIG_IOMMU_DEFAULT_DMA_STRICT y
 
 # Enable TCP SynCookies
 add_config CONFIG_SYN_COOKIES y
