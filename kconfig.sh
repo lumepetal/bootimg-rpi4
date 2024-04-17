@@ -1,23 +1,25 @@
 #! /usr/bin/bash
 
+local target_config="$(pwd)/.config"
+
 add_config() {
     local search_pattern="$1="
     local replacement="$1=$2"
-    local config_file=".config"
 
-    if grep -q "^$search_pattern" "$config_file"; then
+    if grep -q "^$search_pattern" "$target_config"; then
         # 存在する場合置き換える
-        sed -i "s/^$search_pattern.*/$replacement/" "$config_file"
+        sed -i "s/^$search_pattern.*/$replacement/" "$target_config"
         echo "INFO: $1 was set to $2 (replaced)"
     else
         # 存在しない場合、行を追加する
-        echo "$replacement" >> "$config_file"
+        echo "$replacement" >> "$target_config"
         echo "INFO: $1 was set to $2 (new value)"
     fi
 }
 
 # .configが存在するか
-if [ ! -f ".config" ]; then
+echo "target: $target_config"
+if [ ! -f "$target_config" ]; then
     echo "ERROR: .config file does not exist."
     exit 1
 fi
