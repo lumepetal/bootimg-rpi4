@@ -73,7 +73,7 @@ add_config CONFIG_STRICT_MODULE_RWX y
 add_config CONFIG_CC_STACKPROTECTOR_STRONG y
 
 # Enable page table check
-add_config PAGE_TABLE_CHECK y
+add_config CONFIG_PAGE_TABLE_CHECK y
 
 # Enable TCP SynCookies
 add_config CONFIG_SYN_COOKIES y
@@ -103,7 +103,7 @@ add_config CONFIG_INTEGRITY y
 add_config CONFIG_LSM lockdown,yama,apparmor,loadpin,landlock,integrity
 
 # Restrict dmesg
-add_config SECURITY_DMESG_RESTRICT y
+add_config CONFIG_SECURITY_DMESG_RESTRICT y
 
 # Disable /dev/mem, kmem, port access.
 # ref: https://cloud.google.com/compute/docs/images/building-custom-os#kernelbuild
