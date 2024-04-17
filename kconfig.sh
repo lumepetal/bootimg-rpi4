@@ -122,7 +122,7 @@ add_config CONFIG_HOTPLUG_PCI n
 add_config CONFIG_HOTPLUG_PCI_PCIE n
 add_config CONFIG_SOUND n
 
-if [$LPOS_KRNLCFG_HYPERVISOR_GUEST != "y"]; then
+if [ $LPOS_KRNLCFG_HYPERVISOR_GUEST != "y" ]; then
     echo "INFO: VM Support is disabled"
     add_config CONFIG_HYPERVISOR_GUEST n
     add_config CONFIG_KVM_GUEST n
