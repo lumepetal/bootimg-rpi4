@@ -75,6 +75,7 @@ add_config CONFIG_SECURITY_YAMA_STACKED y
 
 # Force kernel lockdown
 add_config CONFIG_SECURITY_LOCKDOWN_LSM y
+add_config CONFIG_SECURITY_LOCKDOWN_LSM_EARLY y
 add_config CONFIG_LOCK_DOWN_KERNEL_FORCE_CONFIDENTIALITY y
 
 # Enabale LoadPin LSM
@@ -91,6 +92,9 @@ add_config CONFIG_INTEGRITY y
 
 # Config LSM
 add_config CONFIG_LSM lockdown,yama,apparmor,loadpin,landlock,integrity
+
+# Restrict dmesg
+add_config SECURITY_DMESG_RESTRICT y
 
 # Disable /dev/mem, kmem, port access.
 # ref: https://cloud.google.com/compute/docs/images/building-custom-os#kernelbuild
