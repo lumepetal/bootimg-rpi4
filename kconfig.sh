@@ -47,7 +47,7 @@ add_config CONFIG_UNMAP_KERNEL_AT_EL0 y
 # Enable kCFI
 # ref: https://source.android.com/docs/security/test/kcfi
 add_config CONFIG_LTO_NONE n
-add_config CONFIG_LTO_CLANG_FULL y
+add_config CONFIG_LTO_CLANG_THIN y
 add_config CONFIG_TRIM_UNUSED_KSYMS y 
 add_config CONFIG_CFI_CLANG y
 add_config CONFIG_CFI_CLANG_SHADOW y
