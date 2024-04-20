@@ -22,6 +22,7 @@ make defconfig
 
 export LPOS_KRNLCFG_HYPERVISOR_GUEST=y
 export LPOS_KRNLCFG_EFI_STUB=y
+export LPOS_KRNLCFG_HARDENING_FOR_X86=y
 bash ../kconfig.sh
 
 cat .config

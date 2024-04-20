@@ -189,3 +189,8 @@ if [ $LPOS_KRNLCFG_EFI_STUB != "n" ]; then
     add_config CONFIG_EFI y
     add_config CONFIG_EFI_STUB y
 fi
+
+# Hardening for amd64 CPU
+if [ $LPOS_KRNLCFG_HARDENING_FOR_X86 != "n" ]; then 
+    add_config CONFIG_LEGACY_VSYSCALL_NONE y
+fi

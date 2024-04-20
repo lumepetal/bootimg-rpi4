@@ -23,6 +23,7 @@ make bcm2711_defconfig
 
 export LPOS_KRNLCFG_HYPERVISOR_GUEST=n
 export LPOS_KRNLCFG_EFI_STUB=y
+export LPOS_KRNLCFG_HARDENING_FOR_X86=n
 bash ../kconfig.sh
 
 cat .config
