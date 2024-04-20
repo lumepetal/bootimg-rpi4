@@ -1,9 +1,8 @@
 #! /usr/bin/bash
-export LPOS_KERNEL_VERSION=v6.8
+export LPOS_KERNEL_VERSION=v6.8.7
 
-git clone https://github.com/torvalds/linux
-cd linux
-git checkout $LPOS_KERNEL_VERSION
+git clone https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git $LPOS_KERNEL_VERSION
+cd $LPOS_KERNEL_VERSION
 
 export LLVM=1
 export CC=clang 
