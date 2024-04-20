@@ -180,3 +180,9 @@ if [ $LPOS_KRNLCFG_HYPERVISOR_GUEST != "y" ]; then
     add_config CONFIG_VIRTIO_MENU n
     add_config CONFIG_VIRTIO_PCI n
 fi
+
+# EFI STUB support
+if [ $LPOS_KRNLCFG_EFI_STUB != "n" ]; then
+    add_config CONFIG_EFI y
+    add_config CONFIG_EFI_STUB y
+fi

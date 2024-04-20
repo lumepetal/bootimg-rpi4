@@ -1,0 +1,30 @@
+name: Kernel building test (UEFI amd64)
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build-image:
+    name: Build with Docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build in Docker
+        run: |
+            docker run --rm -i -v $PWD:/ws ubuntu:22.04 bash <<'EOF'
+
+            apt update
+            apt upgrade -y
+            apt install -y git bc bison flex libssl-dev make build-essential clang clang-tools llvm lld liblldb-dev
+
+            uname -a
+            cd /ws
+            chmod +x build-uefi-amd64.sh
+            ./build-uefi-amd64.sh
+            EOF

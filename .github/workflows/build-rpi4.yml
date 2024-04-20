@@ -1,4 +1,4 @@
-name: Kernel building test
+name: Kernel building test (rpi4)
 on:
   push:
     branches:
@@ -25,8 +25,8 @@ jobs:
 
             uname -a
             cd /ws
-            chmod +x build.sh
-            ./build.sh
+            chmod +x build-rpi4.sh
+            ./build-rpi4.sh
             EOF
 
       
