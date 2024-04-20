@@ -1,8 +1,8 @@
 #! /usr/bin/bash
-export LPOS_KERNEL_VERSION=v6.8.7
+export LPOS_KERNEL_BRANCH=linux-6.8.y
 
-git clone https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git $LPOS_KERNEL_VERSION
-cd $LPOS_KERNEL_VERSION
+git clone https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git -b $LPOS_KERNEL_BRANCH --depth 1
+cd linux-stable
 
 export LLVM=1
 export CC=clang 
