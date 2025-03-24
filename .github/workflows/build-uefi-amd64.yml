@@ -21,7 +21,7 @@ jobs:
 
             apt update
             apt upgrade -y
-            apt install -y git bc bison flex libssl-dev make build-essential clang clang-tools llvm lld liblldb-dev libelf-dev
+            apt install -y git bc bison flex libssl-dev make build-essential clang clang-tools llvm lld liblldb-dev libelf-dev debhelper cpio kmod rsync
 
             uname -a
             cd /ws
