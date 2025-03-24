@@ -28,6 +28,7 @@ bash ../kconfig.sh
 cat .config
 
 echo "Start building with $(nproc) cores!"
-make -j$(nproc) bzImage
+mkdir ../build/
+make -j$(nproc) bindeb-pkg O=../build/
 
-ls arch/x86/boot/
+ls ../build/
