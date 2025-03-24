@@ -32,4 +32,6 @@ mkdir ../build/
 
 make -j$(nproc) bindeb-pkg O=../build/
 
-ls ../build/
+ls ../
+echo "===="
+ls ../build/debian
