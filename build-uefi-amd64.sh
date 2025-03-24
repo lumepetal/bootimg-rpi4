@@ -29,6 +29,8 @@ cat .config
 
 echo "Start building with $(nproc) cores!"
 mkdir ../build/
+
+make mrproper
 make -j$(nproc) bindeb-pkg O=../build/
 
 ls ../build/
