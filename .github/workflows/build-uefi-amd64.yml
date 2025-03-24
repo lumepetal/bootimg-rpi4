@@ -28,3 +28,12 @@ jobs:
             chmod +x build-uefi-amd64.sh
             ./build-uefi-amd64.sh
             EOF
+      - name: Upload deb files
+        uses: actions/upload-artifact@v4
+        with:
+            name: linux-image
+            path: |
+                linux-headers-*.deb
+                linux-image-*.deb
+            if-no-files-found: error
+            retention-days: 1
